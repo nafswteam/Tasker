@@ -9,7 +9,12 @@ const taskRoutes = require("./routes/taskRoutes");
 const profileRoutes = require("./routes/profileRoutes");
 
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  
+    origin: [process.env.API_URL, "http://localhost:3000"],
+    methods: ["GET", "POST", "PUT", "PATCH","OPTIONS"]
+  
+}));
 
 const mongoUrl = process.env.MONGODB_URL;
 mongoose.connect(mongoUrl, err => {
