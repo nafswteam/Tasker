@@ -11,7 +11,7 @@ const profileRoutes = require("./routes/profileRoutes");
 app.use(express.json());
 app.use(cors({
   
-    origin: [process.env.API_URL, "http://localhost:3000"],
+    origin: [process.env.API_URL, "https://tasker-client.vercel.app/", "http://localhost:3000"],
     methods: ["GET", "POST", "PUT", "PATCH","OPTIONS"]
   
 }));
@@ -22,7 +22,7 @@ mongoose.connect(mongoUrl, err => {
   console.log("Mongodb connected...");
 });
 
-
+// Test if the app is working
 app.get("/", (req,res) => {
   res.send({message: "Server running"})
 })
