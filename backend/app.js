@@ -22,6 +22,11 @@ mongoose.connect(mongoUrl, err => {
   console.log("Mongodb connected...");
 });
 
+
+app.get("/", (req,res) => {
+  res.send({message: "Server running"})
+})
+
 app.use("/api/auth", authRoutes);
 app.use("/api/tasks", taskRoutes);
 app.use("/api/profile", profileRoutes);
